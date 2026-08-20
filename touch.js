@@ -1,4 +1,21 @@
 /* =====================================================
+   PAGE LOADER
+===================================================== */
+
+window.addEventListener("load", () => {
+
+    const loader = document.getElementById("loader");
+
+    // Keep loader visible for 1.5 seconds
+    setTimeout(() => {
+
+        loader.classList.add("hide");
+
+    }, 1500);
+
+});
+
+/* =====================================================
    MOBILE MENU
 ===================================================== */
 
@@ -172,8 +189,7 @@ const observer = new IntersectionObserver(
 
         });
 
-    },
-    {
+    }, {
         threshold: 0.12
     }
 );
@@ -224,4 +240,3 @@ document.querySelector(".footer a").addEventListener(
 
     }
 );
-

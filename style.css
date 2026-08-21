@@ -944,10 +944,11 @@ button {
 
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE DESIGN (Max-Width: 900px)
 ===================================================== */
 
 @media (max-width: 900px) {
+    /* Navigation Bar */
     .nav-links {
         position: absolute;
         top: 75px;
@@ -980,33 +981,7 @@ button {
     .menu-btn {
         display: block;
     }
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .hero-description {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-buttons,
-    .social-links {
-        justify-content: center;
-    }
-    .hero-image {
-        display: none;
-    }
-    .about-grid {
-        grid-template-columns: 1fr;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 900px) {
+    /* Hero Section */
     .hero-container {
         display: flex;
         flex-direction: column;
@@ -1021,20 +996,17 @@ button {
         order: -1;
         margin-top: 20px;
     }
-    /* ===== IMAGE PRO STYLE ===== */
+    /* الصورة أصبحت دائرية مضبوطة (150x150) */
     .hero-image img {
-        width: 150px;
-        height: 200px;
+        width: 210px;
+        height: 210px;
         object-fit: cover;
         border-radius: 50%;
-        /* الشكل الاحترافي */
         border: none;
         outline: none;
-        /* حلقة ناعمة بدل border */
         box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08), 0 10px 25px rgba(0, 0, 0, 0.25);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    /* Hover بسيط (حتى على الموبايل لو ضغط) */
     .hero-image img:active {
         transform: scale(1.05);
     }
@@ -1046,6 +1018,30 @@ button {
     .hero-buttons,
     .social-links {
         justify-content: center;
+        flex-wrap: wrap;
         gap: 10px;
+    }
+    /* Grids Responsive */
+    .about-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    }
+}
+
+
+/* =====================================================
+   EXTRA SMALL DEVICES (Max-Width: 480px)
+===================================================== */
+
+@media (max-width: 480px) {
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 }

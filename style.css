@@ -1,4 +1,87 @@
 /* =====================================================
+   PAGE LOADER
+===================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0a0a0f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+
+/* Loader disappears */
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* Content */
+
+.loader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+
+/* Name */
+
+.loader-logo {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: white;
+}
+
+.loader-logo span {
+    color: var(--primary);
+}
+
+
+/* Spinner */
+
+.loader-spinner {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-top-color: var(--primary);
+    animation: loaderSpin 0.8s linear infinite;
+}
+
+
+/* Text */
+
+.loader-content p {
+    color: var(--text-muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+/* Animation */
+
+@keyframes loaderSpin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =====================================================
    GLOBAL
 ===================================================== */
 
@@ -868,8 +951,8 @@ button {
     .nav-links {
         position: absolute;
         top: 75px;
-        left: 0;
-        width: 100%;
+        left: 250px;
+        width: 150px;
         background: #0d0d13;
         flex-direction: column;
         align-items: center;
@@ -923,29 +1006,46 @@ button {
     }
 }
 
-@media (max-width: 600px) {
-    .section {
-        padding: 80px 0;
-    }
-    .hero h1 {
-        letter-spacing: -2px;
-    }
-    .about-info {
-        grid-template-columns: 1fr;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-    .profile-card {
-        width: 270px;
-        height: 340px;
-    }
-    .contact-box {
-        padding: 50px 20px;
-    }
-    .footer-content {
+@media (max-width: 900px) {
+    .hero-container {
+        display: flex;
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
         text-align: center;
+        gap: 20px;
+    }
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: -1;
+        margin-top: 20px;
+    }
+    /* ===== IMAGE PRO STYLE ===== */
+    .hero-image img {
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 50%;
+        /* الشكل الاحترافي */
+        border: none;
+        outline: none;
+        /* حلقة ناعمة بدل border */
+        box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08), 0 10px 25px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    /* Hover بسيط (حتى على الموبايل لو ضغط) */
+    .hero-image img:active {
+        transform: scale(1.05);
+    }
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+    }
+    .hero-buttons,
+    .social-links {
+        justify-content: center;
+        gap: 10px;
     }
 }

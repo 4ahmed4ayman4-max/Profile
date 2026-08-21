@@ -11,7 +11,8 @@ window.addEventListener("load", () => {
 
         loader.classList.add("hide");
 
-    }, 1500);
+
+    }, 1000);
 
 });
 

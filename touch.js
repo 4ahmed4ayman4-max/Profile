@@ -3,19 +3,15 @@
 ===================================================== */
 
 window.addEventListener("load", () => {
-
-    const loader = document.getElementById("loader");
-
-    // Keep loader visible for 1.5 seconds
     setTimeout(() => {
+        document.querySelector(".loader").style.opacity = "0";
+        document.querySelector(".loader").style.transition = "0.6s ease";
 
-        loader.classList.add("hide");
-
-
-    }, 1000);
-
+        setTimeout(() => {
+            document.querySelector(".loader").style.display = "none";
+        }, 600);
+    }, 1500);
 });
-
 /* =====================================================
    MOBILE MENU
 ===================================================== */

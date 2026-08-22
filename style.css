@@ -6,77 +6,66 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #0a0a0f;
+    background: #000;
+    /* pure black */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    overflow: hidden;
 }
 
 
-/* Loader disappears */
-
-.loader.hide {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-}
-
-
-/* Content */
+/* Center container */
 
 .loader-content {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
+    justify-content: center;
 }
 
 
-/* Name */
+/* Dots */
 
-.loader-logo {
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    color: white;
-}
-
-.loader-logo span {
-    color: var(--primary);
+.loader-dots {
+    display: flex;
+    gap: 10px;
 }
 
 
-/* Spinner */
+/* Dot style */
 
-.loader-spinner {
-    width: 42px;
-    height: 42px;
+.loader-dots span {
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.08);
-    border-top-color: var(--primary);
-    animation: loaderSpin 0.8s linear infinite;
+    background: #6366f1;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.8);
+    animation: pulseDots 0.8s infinite ease-in-out;
 }
 
 
-/* Text */
+/* delay */
 
-.loader-content p {
-    color: var(--text-muted);
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.loader-dots span:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.loader-dots span:nth-child(3) {
+    animation-delay: 0.3s;
 }
 
 
 /* Animation */
 
-@keyframes loaderSpin {
-    from {
-        transform: rotate(0deg);
+@keyframes pulseDots {
+    0%,
+    100% {
+        transform: scale(0.6);
+        opacity: 0.3;
     }
-    to {
-        transform: rotate(360deg);
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
     }
 }
 

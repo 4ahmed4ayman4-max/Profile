@@ -662,7 +662,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 2%;
+    margin-bottom: 2;
 }
 
 .tech-list span,
@@ -693,6 +693,9 @@ button {
     border: 1px solid var(--border);
     border-radius: 16px;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .skill-card:hover {

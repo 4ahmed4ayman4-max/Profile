@@ -662,6 +662,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    margin-bottom: 2%;
 }
 
 .tech-list span,
